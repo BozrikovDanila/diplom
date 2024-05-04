@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('risks', function (Blueprint $table) {
+        Schema::create('indicator_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->foreignId('indicator_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->unique(['indicator_id', 'tag_id']);
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('risks');
+        Schema::dropIfExists('indicator_tag');
     }
 };

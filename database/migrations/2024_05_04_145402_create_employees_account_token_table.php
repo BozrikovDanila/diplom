@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('risks', function (Blueprint $table) {
+        Schema::create('employees_account_token', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('token')->unique();
+            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('risks');
+        Schema::dropIfExists('employees_account_token');
     }
 };

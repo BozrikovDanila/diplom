@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_name', 100);
             $table->string('second_name', 100);
             $table->string('last_name', 100);
-            $table->string('email');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

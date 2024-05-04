@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_sources', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('link')->comment('Ссылка на ресурс');
             $table->string('description')->comment('Описание для tooltip');
             $table->timestamps();

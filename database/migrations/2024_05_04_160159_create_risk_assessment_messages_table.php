@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('risks', function (Blueprint $table) {
+        Schema::create('risk_assessment_messages', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->text('text');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('risk_assessment_id')->constrained()->cascadeOnDelete();
+            $table->json('attached_files')->comment('Вложения');
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('risks');
+        Schema::dropIfExists('risk_assessment_messages');
     }
 };

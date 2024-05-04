@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('risk_matrices', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->json('probabilities')->comment('Диапазоны значений вероятности и их цветов');
             $table->timestamps();
         });

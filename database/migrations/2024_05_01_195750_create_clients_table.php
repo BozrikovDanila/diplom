@@ -16,13 +16,14 @@ return new class extends Migration
             $table->string('first_name', 100);
             $table->string('second_name', 100);
             $table->string('last_name', 100);
-            $table->string('email');
-            $table->string('phone');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->integer('employees_number')->comment('Кол-во сотрудников компании');
             $table->integer('assessments_number')->comment('Кол-во оценок в подписке');
             $table->timestamp('duration')->comment('Длительность подписки');
             $table->boolean('instant_access')->comment('Выдать доступ сразу или после оплаты');
             $table->string('INN', 12)->comment('ИНН');
+            $table->foreignId('client_status_id')->constrained();
             $table->timestamps();
         });
     }
