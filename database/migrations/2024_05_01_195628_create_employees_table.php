@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('second_name', 100);
             $table->string('last_name', 100);
             $table->string('email')->unique();
+            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

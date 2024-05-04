@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('value')->comment('Значение (может быть множеств)');
             $table->foreignId('indicator_type_id')->constrained();
             $table->foreignId('competency_id')->constrained();
+            $table->foreignId('data_source_id')->constrained();
             $table->timestamps();
         });
     }
