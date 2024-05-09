@@ -14,7 +14,7 @@ class Risk extends Model
       'name',
     ];
 
-    public function risk_matrices(): BelongsToMany
+    public function riskMatrices(): BelongsToMany
     {
         return $this
             ->belongsToMany(

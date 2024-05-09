@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class IndicatorType extends Model
 {
@@ -14,8 +15,8 @@ class IndicatorType extends Model
         'name',
     ];
 
-    public function indicator(): BelongsTo
+    public function indicator(): HasMany
     {
-        return $this->belongsTo(Indicator::class);
+        return $this->hasMany(Indicator::class);
     }
 }

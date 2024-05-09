@@ -19,9 +19,9 @@ class Employee extends Model
         'client_id',
     ];
 
-    public function employeeAccountToken(): BelongsTo
+    public function employeeAccountToken(): HasOne
     {
-        return $this->belongsTo(EmployeeAccountToken::class);
+        return $this->hasOne(EmployeeAccountToken::class);
     }
 
     public function client(): BelongsTo

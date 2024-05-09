@@ -5,6 +5,7 @@ namespace App\Models;
 use Filament\Support\Contracts\HasIcon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -43,18 +44,18 @@ class Indicator extends Model
             )->withPivot('score');
     }
 
-    public function indicatorType(): HasOne
+    public function indicatorType(): BelongsTo
     {
-        return $this->hasOne(IndicatorType::class);
+        return $this->belongsTo(IndicatorType::class);
     }
 
-    public function competency(): HasOne
+    public function competency(): BelongsTo
     {
-        return $this->hasOne(Competency::class);
+        return $this->belongsTo(Competency::class);
     }
 
-    public function dataSource(): HasOne
+    public function dataSource(): BelongsTo
     {
-        return $this->hasOne(DataSource::class);
+        return $this->belongsTo(DataSource::class);
     }
 }
