@@ -48,8 +48,8 @@ class RiskAssessment extends Model
         return $this->belongsToMany(
             User::class,
             'risk_assessment_user',
-            'user_id',
-            'risk_assessment_id'
+            'risk_assessment_id',
+            'user_id'
         );
     }
 }

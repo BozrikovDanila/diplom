@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('risk_matrix_id')->constrained()->cascadeOnDelete();
             $table->foreignId('risk_id')->constrained()->cascadeOnDelete();
             $table->unique(['risk_matrix_id', 'risk_id']);
-            $table->json('probabilities')->comment('Цвет вероятности риска в зависимости от score');
+            $table->json('probabilities')->nullable()->comment('Цвет вероятности риска в зависимости от score');
             $table->timestamps();
         });
     }

@@ -19,8 +19,8 @@ class Tag extends Model
         return $this->belongsToMany(
             Indicator::class,
             'indicator_tag',
-            'indicator_id',
-            'tag_id'
+            'tag_id',
+            'indicator_id'
         );
     }
 }

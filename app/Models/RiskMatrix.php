@@ -22,8 +22,8 @@ class RiskMatrix extends Model
         return $this->belongsToMany(
             Risk::class,
             'risk_matrix_risk',
-            'risk_id',
-            'risk_matrix_id'
+            'risk_matrix_id',
+            'risk_id'
         )->withPivot('probabilities');
     }
 
@@ -32,8 +32,8 @@ class RiskMatrix extends Model
         return $this->belongsToMany(
             Competency::class,
             'user_competency',
-            'competency_id',
-            'risk_matrix_id'
+            'risk_matrix_id',
+            'competency_id'
         );
     }
 
@@ -42,8 +42,8 @@ class RiskMatrix extends Model
         return $this->belongsToMany(
             User::class,
             'risk_matrix_risk',
-            'user_id',
-            'risk_matrix_id'
+            'risk_matrix_id',
+            'user_id'
         );
     }
 
@@ -52,8 +52,8 @@ class RiskMatrix extends Model
         return $this->belongsToMany(
             Client::class,
             'risk_matrix_client',
-            'client_id',
-            'risk_matrix_id'
+            'risk_matrix_id',
+            'client_id'
         );
     }
 

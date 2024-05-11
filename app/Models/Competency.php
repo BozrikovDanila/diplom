@@ -26,8 +26,8 @@ class Competency extends Model
         return $this->belongsToMany(
             User::class,
             'user_competency',
-            'user_id',
             'competency_id',
+            'user_id',
         );
     }
 
@@ -36,8 +36,8 @@ class Competency extends Model
         return $this->belongsToMany(
             RiskMatrix::class,
             'user_competency',
-            'risk_matrix_id',
             'competency_id',
+            'risk_matrix_id',
         );
     }
 }

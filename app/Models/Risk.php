@@ -20,8 +20,8 @@ class Risk extends Model
             ->belongsToMany(
                 RiskMatrix::class,
                 'risk_matrix_risk',
-                'risk_matrix_id',
-                'risk_id'
+                'risk_id',
+                'risk_matrix_id'
             )->withPivot('probabilities');
     }
 
@@ -31,8 +31,8 @@ class Risk extends Model
             ->belongsToMany(
                 Indicator::class,
                 'risk_indicator',
-                'indicator_id',
-                'risk_id'
+                'risk_id',
+                'indicator_id'
             )->withPivot('score');
     }
 }

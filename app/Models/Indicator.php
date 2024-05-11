@@ -15,21 +15,33 @@ class Indicator extends Model
 
     protected $fillable = [
         'question',
-        'key',
+        'indicator_key',
         'formula',
-        'value',
+        'indicator_value',
         'indicator_type_id',
         'competency_id',
         'data_source_id',
     ];
+
+    protected $attributes = [
+        'formula' => "",
+        'indicator_value' => "[]",
+
+    ];
+
+    protected $casts = [
+        'indicator_value' => 'array',
+
+    ];
+
 
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(
             Tag::class,
             'indicator_tag',
-            'tag_id',
-            'indicator_id'
+            'indicator_id',
+            'tag_id'
         );
     }
 
@@ -39,8 +51,8 @@ class Indicator extends Model
             ->belongsToMany(
                 Risk::class,
                 'risk_indicator',
-                'risk_id',
-                'indicator_id'
+                'indicator_id',
+                'risk_id'
             )->withPivot('score');
     }
 

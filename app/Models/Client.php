@@ -46,8 +46,8 @@ class Client extends Model
         return $this->belongsToMany(
             RiskMatrix::class,
             'risk_matrix_client',
-            'risk_matrix_id',
-            'client_id'
+            'client_id',
+            'risk_matrix_id'
         );
     }
 }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('indicators', function (Blueprint $table) {
             $table->id();
             $table->string('question')->comment('Вопрос');
-            $table->string('key', 45)->unique()->comment('Уникальный ключ для формул');
+            $table->string('indicator_key', 45)->unique()->comment('Уникальный ключ для формул');
             $table->string('formula')->comment('Формула для расчета');
-            $table->json('value')->comment('Значение (может быть множеств)');
+            $table->json('indicator_value')->comment('Значение (может быть множеств)');
             $table->foreignId('indicator_type_id')->constrained();
             $table->foreignId('competency_id')->constrained();
             $table->foreignId('data_source_id')->constrained();

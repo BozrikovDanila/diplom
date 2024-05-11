@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('indicator_id')->constrained()->cascadeOnDelete();
             $table->foreignId('risk_id')->constrained()->cascadeOnDelete();
             $table->unique(['indicator_id', 'risk_id']);
-            $table->json('score')->comment('Влияние значения индикатора на риск (от 0 до 4)');
+            $table->json('score')->nullable()->comment('Влияние значения индикатора на риск (от 0 до 4)');
             $table->timestamps();
         });
     }
